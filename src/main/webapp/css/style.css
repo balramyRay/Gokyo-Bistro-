@@ -88,7 +88,6 @@ body {
 
 /* --------------------------------------------
    CARD STYLES (Login, Register Forms)
-   Week 2: CSS Box Model
    -------------------------------------------- */
 .card {
     background: white;
@@ -108,7 +107,6 @@ body {
 
 /* --------------------------------------------
    FORM STYLES
-   Week 2: Flexbox for form layout
    -------------------------------------------- */
 .form-group {
     margin-bottom: 20px;
@@ -175,10 +173,6 @@ body {
     background-color: #c0392b;
 }
 
-/* --------------------------------------------
-   MESSAGE STYLES
-   DSA Instructions: Section 7 - User-friendly messages
-   -------------------------------------------- */
 .error-message {
     background-color: #f8d7da;
     color: #721c24;
@@ -233,7 +227,6 @@ tr:hover {
 
 /* --------------------------------------------
    MENU GRID (Flexbox for responsive menu display)
-   Week 2: Flexbox for arranging items in rows
    -------------------------------------------- */
 .menu-grid {
     display: flex;
@@ -246,19 +239,15 @@ tr:hover {
     background: white;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: calc(33.33% - 20px);
+    width: 300px;
+    max-width: 100%;
     overflow: hidden;
     transition: transform 0.3s;
+    flex: 0 0 auto;
 }
 
 .menu-card:hover {
     transform: translateY(-5px);
-}
-
-.menu-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
 .menu-card-content {
@@ -275,6 +264,42 @@ tr:hover {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
+}
+
+/* --------------------------------------------
+   AVAILABILITY BADGE STYLES
+   -------------------------------------------- */
+.availability-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.available {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.not-available {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-disabled {
+    background-color: #6c757d !important;
+    cursor: not-allowed;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white !important;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    width: auto;
 }
 
 /* --------------------------------------------
@@ -315,8 +340,6 @@ tr:hover {
 
 /* --------------------------------------------
    RESPONSIVE DESIGN (Media Queries)
-   DSA Instructions: Section 10 - Responsiveness
-   Week 2: CSS Responsive Design
    -------------------------------------------- */
 @media (max-width: 768px) {
     .header {
@@ -331,8 +354,8 @@ tr:hover {
     
     .menu-card {
         width: calc(50% - 20px);
+        min-width: 200px;
     }
-    
     .dashboard-grid {
         flex-direction: column;
     }

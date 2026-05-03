@@ -39,6 +39,12 @@
                 <a href="${pageContext.request.contextPath}/admin/orders" class="btn">View Orders</a>
             </div>
             
+            <div class="dashboard-card">
+                <h3>👥 Manage Members</h3>
+                <p>View and delete member accounts.</p>
+                <a href="${pageContext.request.contextPath}/admin/manageMembers" class="btn">Manage Members</a>
+           </div>
+            
         </div>
     </div>
     

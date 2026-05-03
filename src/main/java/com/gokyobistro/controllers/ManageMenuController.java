@@ -82,7 +82,6 @@ public class ManageMenuController extends HttpServlet {
             String category = request.getParameter("category");
             String description = request.getParameter("description");
             String priceStr = request.getParameter("price");
-            String offerPriceStr = request.getParameter("offerPrice");
             String availability = request.getParameter("availability");
             
             MenuModel menu = new MenuModel();
@@ -90,9 +89,6 @@ public class ManageMenuController extends HttpServlet {
             menu.setCategory(category);
             menu.setDescription(description);
             menu.setPrice(Double.parseDouble(priceStr));
-            if (offerPriceStr != null && !offerPriceStr.isEmpty()) {
-                menu.setOfferPrice(Double.parseDouble(offerPriceStr));
-            }
             menu.setAvailability(availability);
             
                       
@@ -109,7 +105,6 @@ public class ManageMenuController extends HttpServlet {
             String category = request.getParameter("category");
             String description = request.getParameter("description");
             String priceStr = request.getParameter("price");
-            String offerPriceStr = request.getParameter("offerPrice");
             String availability = request.getParameter("availability");
             
             MenuModel menu = new MenuModel();
@@ -118,9 +113,6 @@ public class ManageMenuController extends HttpServlet {
             menu.setCategory(category);
             menu.setDescription(description);
             menu.setPrice(Double.parseDouble(priceStr));
-            if (offerPriceStr != null && !offerPriceStr.isEmpty()) {
-                menu.setOfferPrice(Double.parseDouble(offerPriceStr));
-            }
             menu.setAvailability(availability);
             
             boolean updated = menuService.updateMenuItem(menu);

@@ -22,7 +22,7 @@ public class MenuService {
      */
     public boolean addMenuItem(MenuModel menu) {
         String sql = "INSERT INTO menu (item_name, category, description, price, "
-                   + "availability, created_date) VALUES (?, ?, ?, ?, ?, ?, ?, CURDATE())";
+                   + "availability, created_date) VALUES (?, ?, ?, ?, ?, CURDATE())";
         
         try (Connection conn = DbConfig.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -31,7 +31,7 @@ public class MenuService {
             pstmt.setString(2, menu.getCategory());
             pstmt.setString(3, menu.getDescription());
             pstmt.setDouble(4, menu.getPrice());
-            pstmt.setString(7, menu.getAvailability());
+            pstmt.setString(5, menu.getAvailability());
             
             return pstmt.executeUpdate() > 0;
             
@@ -155,8 +155,8 @@ public class MenuService {
             pstmt.setString(2, menu.getCategory());
             pstmt.setString(3, menu.getDescription());
             pstmt.setDouble(4, menu.getPrice());
-            pstmt.setString(6, menu.getAvailability());
-            pstmt.setInt(7, menu.getMenuId());
+            pstmt.setString(5, menu.getAvailability());
+            pstmt.setInt(6, menu.getMenuId());
             
             return pstmt.executeUpdate() > 0;
             

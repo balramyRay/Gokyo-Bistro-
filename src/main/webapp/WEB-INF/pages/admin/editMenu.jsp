@@ -23,7 +23,7 @@
                 }
             %>
             
-            <form action="${pageContext.request.contextPath}/admin/manageMenu" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/admin/manageMenu" method="post">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="menuId" value="<%= menuItem.getMenuId() %>">
                 
@@ -52,11 +52,7 @@
                     <input type="number" name="price" step="0.01" value="<%= menuItem.getPrice() %>" required>
                 </div>
                 
-                <div class="form-group">
-                    <label>Offer Price (Rs.)</label>
-                    <input type="number" name="offerPrice" step="0.01" value="<%= menuItem.getOfferPrice() > 0 ? menuItem.getOfferPrice() : "" %>">
-                </div>
-                
+                               
                 <div class="form-group">
                     <label>Availability</label>
                     <select name="availability">
@@ -65,11 +61,7 @@
                     </select>
                 </div>
                 
-                <div class="form-group">
-                    <label>New Image (optional)</label>
-                    <input type="file" name="image" accept="image/*">
-                </div>
-                
+                              
                 <button type="submit" class="btn">Update Menu Item</button>
                 <a href="${pageContext.request.contextPath}/admin/manageMenu" class="btn btn-secondary" style="background-color:#7f8c8d; margin-top:10px; text-align:center; display:inline-block; text-decoration:none;">Cancel</a>
             </form>

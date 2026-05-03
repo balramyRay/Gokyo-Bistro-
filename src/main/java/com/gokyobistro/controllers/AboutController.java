@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * About Controller Servlet
-  Purpose: Displays about page
+   Displays about page
  */
 @WebServlet("/about")
 public class AboutController extends HttpServlet {

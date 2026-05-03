@@ -1,17 +1,7 @@
 package com.gokyobistro.model;
 
 /**
- * User Model Class - Represents a user (Admin or Member)
- * 
- * Lecture Reference: Week 5 - JavaBean Class
- * DSA Instructions: Section 4 - Model component
- * 
- * JavaBean Rules Applied:
- * 1. Private fields (encapsulation)
- * 2. Public no-argument constructor
- * 3. Public getters and setters
- * 
- * @author Your Name
+ Represents a user (Admin or Member)
  */
 public class UserModel {
     

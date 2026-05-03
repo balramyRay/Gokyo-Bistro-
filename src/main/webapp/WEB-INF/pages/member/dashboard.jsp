@@ -44,6 +44,12 @@
                 <p>Track your food delivery orders.</p>
                 <a href="${pageContext.request.contextPath}/member/myOrders" class="btn">View Orders</a>
             </div>
+            
+            <div class="dashboard-card">
+                <h3>👤 My Account</h3>
+                <p>View and update your profile information.</p>
+                <a href="${pageContext.request.contextPath}/member/profile" class="btn">My Profile</a>
+            </div>
         </div>
     </div>
     

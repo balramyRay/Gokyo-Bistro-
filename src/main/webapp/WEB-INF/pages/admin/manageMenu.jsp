@@ -71,11 +71,7 @@
                     <input type="number" name="price" step="0.01" required>
                 </div>
                 
-                <div class="form-group">
-                    <label>Offer Price (Rs.)</label>
-                    <input type="number" name="offerPrice" step="0.01">
-                </div>
-                                               
+                                 
                 <div class="form-group">
                     <label>Availability</label>
                     <select name="availability">

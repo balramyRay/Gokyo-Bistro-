@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
-  Purpose: Displays contact page and processes contact form
+  Displays contact page and processes contact form
  **/
 @WebServlet("/contact")
 public class ContactController extends HttpServlet {
@@ -37,8 +37,7 @@ public class ContactController extends HttpServlet {
         String subject = request.getParameter("subject");
         String message = request.getParameter("message");
         
-        // In a real application, you would send an email or save to database
-        // For now, just redirect with success message
+         // For now, just redirect with success message
         
         response.sendRedirect(request.getContextPath() + "/contact?success=sent");
     }

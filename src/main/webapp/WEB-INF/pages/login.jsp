@@ -32,6 +32,7 @@
         <div class="card">
             <h2>Login to Your Account</h2>
             
+            <!-- Display error message for invalid credentials -->
             <%
                 String error = request.getParameter("error");
                 if (error != null && error.equals("invalid")) {
@@ -52,6 +53,7 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 
+                               
                 <button type="submit" class="btn">Login</button>
             </form>
             

@@ -6,13 +6,6 @@ import java.sql.SQLException;
 
 /**
  * Database Configuration Class
- * 
- * Purpose: Establishes connection between Java application and MySQL database
- * 
- * Lecture Reference: Week 6 - Implementing JDBC API
- * DSA Instructions: Section 6 - Use a config class (e.g., DBConfig)
- * 
- * @author Your Name
  */
 public class DbConfig {
     

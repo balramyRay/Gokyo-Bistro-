@@ -1,10 +1,7 @@
 package com.gokyobistro.model;
 
 /**
- * Menu Model Class - Represents a food item in the menu
- * 
- * Lecture Reference: Week 5 - JavaBean Class
- * 
+ * Menu Model Class - Represents a food item in the menu 
  * @author Your Name
  */
 public class MenuModel {
@@ -15,7 +12,6 @@ public class MenuModel {
     private String category;
     private String description;
     private double price;
-    private double offerPrice;
     private String availability;
     private String createdDate;
     
@@ -24,14 +20,13 @@ public class MenuModel {
     
     // Parameterized constructor
     public MenuModel(int menuId, String itemName, String category, String description, 
-                     double price, double offerPrice, String availability, String createdDate) 
+                     double price, String availability, String createdDate) 
     {
         this.menuId = menuId;
         this.itemName = itemName;
         this.category = category;
         this.description = description;
         this.price = price;
-        this.offerPrice = offerPrice;
         this.availability = availability;
         this.createdDate = createdDate;
     }
@@ -77,14 +72,7 @@ public class MenuModel {
         this.price = price;
     }
     
-    public double getOfferPrice() {
-        return offerPrice;
-    }
-    
-    public void setOfferPrice(double offerPrice) {
-        this.offerPrice = offerPrice;
-    }
-    
+        
     public String getAvailability() {
         return availability;
     }

@@ -2,11 +2,6 @@ package com.gokyobistro.model;
 
 /**
  * Reservation Model Class - Represents a table booking
- * 
- * Lecture Reference: Week 5 - JavaBean Class
- * Week 4 - Foreign Key relationship
- * 
- * @author Your Name
  */
 public class ReservationModel {
     

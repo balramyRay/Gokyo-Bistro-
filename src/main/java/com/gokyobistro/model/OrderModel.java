@@ -2,11 +2,6 @@ package com.gokyobistro.model;
 
 /**
  * Order Model Class - Represents a food delivery order
- * 
- * Lecture Reference: Week 5 - JavaBean Class
- * Week 4 - Foreign Key relationship
- * 
- * @author Your Name
  */
 public class OrderModel {
     

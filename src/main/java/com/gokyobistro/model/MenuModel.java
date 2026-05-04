@@ -2,8 +2,7 @@ package com.gokyobistro.model;
 
 /**
  * Menu Model Class - Represents a food item in the menu 
- * @author Your Name
- */
+  */
 public class MenuModel {
     
     // Private fields - matches database columns

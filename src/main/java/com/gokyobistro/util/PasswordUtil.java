@@ -5,24 +5,14 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Password Utility Class
- * 
- * Purpose: Encrypts passwords using SHA-256 algorithm
+  Encrypts passwords using SHA-256 algorithm
  * Never store plain text passwords in database!
- * 
- * Lecture Reference: Week 6 Tutorial - PasswordUtil class
- * DSA Instructions: Section 4a - Proper encryption program
- * 
- * @author Your Name
  */
 public class PasswordUtil {
     
     /**
      * Encrypts password using SHA-256 hashing algorithm
-     * 
-     * @param plainPassword The plain text password from user input
-     * @return Encrypted (hashed) password as hexadecimal string
-     * @throws NoSuchAlgorithmException if SHA-256 algorithm not available
-     */
+    */
     public static String encryptPassword(String plainPassword) throws NoSuchAlgorithmException {
         // SHA-256 is a secure hashing algorithm
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
@@ -44,12 +34,7 @@ public class PasswordUtil {
     
     /**
      * Verifies if plain password matches the encrypted password
-     * 
-     * @param plainPassword The plain text password from user input
-     * @param encryptedPassword The stored encrypted password from database
-     * @return true if passwords match, false otherwise
-     * @throws NoSuchAlgorithmException if SHA-256 algorithm not available
-     */
+    */
     public static boolean verifyPassword(String plainPassword, String encryptedPassword) 
             throws NoSuchAlgorithmException {
         String hashedInput = encryptPassword(plainPassword);

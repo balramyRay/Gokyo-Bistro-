@@ -26,43 +26,91 @@
     </style>
 </head>
 <body>
+    <!-- Include the header file (navigation bar) -->
     <jsp:include page="header.jsp" />
     
     <div class="container">
         <div class="card">
+        
             <h2>Login to Your Account</h2>
             
-            <!-- Display error message for invalid credentials -->
+            <!-- Success Message -->
             <%
-                String error = request.getParameter("error");
-                if (error != null && error.equals("invalid")) {
+                String success = request.getParameter("success");
+                if(success != null && success.equals("passwordReset")) {
             %>
-                <div class="error-message">Invalid email or password. Please try again.</div>
+                <div class="success-message">
+                    Password reset successfully! Please login with your new password.
+                </div>
             <%
                 }
             %>
             
+            <!-- Error Messages -->
+            <%
+                String error = request.getParameter("error");
+                
+                if(error != null && error.equals("emailNotFound")) {
+            %>
+                <div class="error-message">
+                    Email address does not exist in our records. Please register first.
+                </div>
+            <%
+                } else if(error != null && error.equals("invalid")) {
+            %>
+                <div class="error-message">
+                    password is incorrect. Please try again.
+                    3 times wrong password, account locked.
+                </div>
+            <%
+                } else if(error != null && error.equals("locked")) {
+            %>
+                <div class="error-message">
+                    Account is locked. Please try again after 5 minutes.
+                </div>
+            <%
+                } else if(error != null && error.equals("empty")) {
+            %>
+                <div class="error-message">
+                    Please fill all required fields.
+                </div>
+            <%
+                }
+            %>
+            
+            <!-- Login Form -->
             <form action="${pageContext.request.contextPath}/login" method="post">
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email">
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password">
                 </div>
                 
-                               
-                <button type="submit" class="btn">Login</button>
+                <div style="text-align: right; margin-bottom: 15px;">
+                    <a href="${pageContext.request.contextPath}/forgotPassword">
+                        Forgot Password?
+                    </a>
+                </div>
+                
+                <button type="submit" class="btn">
+                    Login
+                </button>
             </form>
             
             <p style="text-align: center; margin-top: 20px;">
-                Don't have an account? <a href="${pageContext.request.contextPath}/register">Register here</a>
+                Don't have an account?
+                <a href="${pageContext.request.contextPath}/register">
+                    Register here
+                </a>
             </p>
         </div>
     </div>
-    
+    <!-- footer added -->
     <jsp:include page="footer.jsp" />
+
 </body>
 </html>

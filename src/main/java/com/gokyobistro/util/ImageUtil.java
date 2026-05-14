@@ -8,15 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-/**
- * Image Utility Class
- * 
- * Purpose: Handles image upload, validation, and path management
- * 
- * Lecture Reference: Week 6 Lecture - File Upload Process
- * Week 6 Tutorial - ImageUtil class
- * 
- * @author Your Name
+/*
+  Image Utility Class
+ Handles image upload, validation, and path management
  */
 public class ImageUtil {
     
@@ -29,11 +23,8 @@ public class ImageUtil {
     // Maximum file size: 5MB
     private static final long MAX_FILE_SIZE = 5 * 1024 * 1024;
     
-    /**
-     * Validates if the uploaded file has allowed image extension
-     * 
-     * @param image Part object containing the uploaded file
-     * @return true if extension is allowed, false otherwise
+    /*
+      Validates if the uploaded file has allowed image extension
      */
     public static boolean isValidImageExtension(Part image) {
         String fileName = getFileName(image);
@@ -47,11 +38,9 @@ public class ImageUtil {
         return false;
     }
     
-    /**
-     * Extracts original file name from Part object
-     * 
-     * @param part Part object containing uploaded file
-     * @return Original file name
+    /*
+      Extracts original file name from Part object
+    
      */
     public static String getFileName(Part part) {
         String contentDisposition = part.getHeader("content-disposition");
@@ -63,11 +52,9 @@ public class ImageUtil {
         return null;
     }
     
-    /**
-     * Generates unique file name using timestamp to avoid duplicates
-     * 
-     * @param part Part object containing uploaded file
-     * @return Unique file name
+    /*
+      Generates unique file name using timestamp to avoid duplicates
+    
      */
     public static String getUniqueFileName(Part part) {
         String originalName = getFileName(part);
@@ -84,12 +71,8 @@ public class ImageUtil {
         return System.currentTimeMillis() + "_" + System.nanoTime() + extension;
     }
     
-    /**
-     * Uploads image to server directory
-     * 
-     * @param image Part object containing uploaded file
-     * @param uploadPath Server's real path (getServletContext().getRealPath("/"))
-     * @return The saved file name if successful, null if failed
+    /*
+      Uploads image to server directory
      */
     public static String uploadImage(Part image, String uploadPath) {
         try {

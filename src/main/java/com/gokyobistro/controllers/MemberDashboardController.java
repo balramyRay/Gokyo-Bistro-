@@ -29,7 +29,7 @@ public class MemberDashboardController extends HttpServlet {
             return;
         }
         
-        // Check if user is member (not admin)
+        // Check if user is member
         if (!"member".equals(user.getRole())) {
             response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             return;

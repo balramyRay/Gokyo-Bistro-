@@ -65,9 +65,8 @@ body {
     background-color: #e67e22;
 }
 
-/* --------------------------------------------
-   FOOTER STYLES
-   -------------------------------------------- */
+/*
+   FOOTER STYLES*/
 .footer {
     background-color: #2c3e50;
     color: white;
@@ -76,9 +75,9 @@ body {
     margin-top: auto;
 }
 
-/* --------------------------------------------
+/* 
    CONTAINER & MAIN CONTENT
-   -------------------------------------------- */
+  */
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -86,9 +85,8 @@ body {
     flex: 1;
 }
 
-/* --------------------------------------------
-   CARD STYLES (Login, Register Forms)
-   -------------------------------------------- */
+/* 
+   CARD STYLES (Login, Register Forms) */
 .card {
     background: white;
     border-radius: 10px;
@@ -105,9 +103,8 @@ body {
     font-size: 28px;
 }
 
-/* --------------------------------------------
-   FORM STYLES
-   -------------------------------------------- */
+/* 
+   FORM STYLES */
 .form-group {
     margin-bottom: 20px;
 }
@@ -137,9 +134,9 @@ body {
     border-color: #e67e22;
 }
 
-/* --------------------------------------------
+ /* 
    BUTTON STYLES
-   -------------------------------------------- */
+   */
 .btn {
     width: 100%;
     padding: 12px;
@@ -193,9 +190,9 @@ body {
     border: 1px solid #c3e6cb;
 }
 
-/* --------------------------------------------
+/*
    TABLE STYLES (Admin Dashboard)
-   -------------------------------------------- */
+  */
 .table-container {
     overflow-x: auto;
 }
@@ -225,9 +222,9 @@ tr:hover {
     background-color: #f5f5f5;
 }
 
-/* --------------------------------------------
+/* 
    MENU GRID (Flexbox for responsive menu display)
-   -------------------------------------------- */
+   */
 .menu-grid {
     display: flex;
     flex-wrap: wrap;
@@ -266,9 +263,9 @@ tr:hover {
     margin: 10px 0;
 }
 
-/* --------------------------------------------
+ /* 
    AVAILABILITY BADGE STYLES
-   -------------------------------------------- */
+    */
 .availability-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -302,9 +299,8 @@ tr:hover {
     width: auto;
 }
 
-/* --------------------------------------------
-   DASHBOARD GRID (Flexbox)
-   -------------------------------------------- */
+/*
+   DASHBOARD GRID (Flexbox) */
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
@@ -338,9 +334,9 @@ tr:hover {
     color: #e67e22;
 }
 
-/* --------------------------------------------
-   RESPONSIVE DESIGN (Media Queries)
-   -------------------------------------------- */
+
+  /* RESPONSIVE DESIGN (Media Queries) */
+ 
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -376,9 +372,9 @@ tr:hover {
     }
 }
 
-/* --------------------------------------------
-   DASHBOARD SPECIFIC
-   -------------------------------------------- */
+ /*
+    DASHBOARD SPECIFIC
+  */
 .welcome-banner {
     background: linear-gradient(135deg, #e67e22, #d35400);
     color: white;
@@ -391,9 +387,9 @@ tr:hover {
     margin-bottom: 10px;
 }
 
-/* --------------------------------------------
+/*
    SEARCH BAR
-   -------------------------------------------- */
+  */
 .search-bar {
     margin-bottom: 30px;
 }

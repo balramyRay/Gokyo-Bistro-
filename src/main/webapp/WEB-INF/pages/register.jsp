@@ -17,13 +17,13 @@
             <%
                 String error = request.getParameter("error");
                 if (error != null) {
-                    if (error.equals("email")) {
+                    if (error.equals("invalidEmail")) {
+            %>
+                <div class="error-message">Please enter a valid email address (example: name@domain.com).</div>
+            <%
+                    } else if (error.equals("email")) {
             %>
                 <div class="error-message">Email already exists. Please use another email.</div>
-            <%
-                    } else if (error.equals("missing")) {
-            %>
-                <div class="error-message">Please fill all required fields.</div>
             <%
                     } else if (error.equals("db")) {
             %>
@@ -31,17 +31,28 @@
             <%
                     }
                 }
+                
+                // Get old values from request parameters (they come back in URL after error)
+                String oldFullName = request.getParameter("fullName");
+                String oldEmail = request.getParameter("email");
+                String oldPhone = request.getParameter("phone");
+                String oldAddress = request.getParameter("address");
+                
+                if (oldFullName == null) oldFullName = "";
+                if (oldEmail == null) oldEmail = "";
+                if (oldPhone == null) oldPhone = "";
+                if (oldAddress == null) oldAddress = "";
             %>
             
-            <form action="${pageContext.request.contextPath}/register" method="post">
+            <form action="${pageContext.request.contextPath}/register" method="post" autocomplete="off" novalidate>
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required>
+                    <input type="text" id="fullName" name="fullName" value="<%= oldFullName %>" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" value="<%= oldEmail %>" required>
                 </div>
                 
                 <div class="form-group">
@@ -51,12 +62,12 @@
                 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
+                    <input type="tel" id="phone" name="phone" value="<%= oldPhone %>">
                 </div>
                 
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <textarea id="address" name="address" rows="3"></textarea>
+                    <textarea id="address" name="address" rows="3"><%= oldAddress %></textarea>
                 </div>
                 
                 <button type="submit" class="btn">Register</button>

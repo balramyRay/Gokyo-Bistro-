@@ -1,6 +1,8 @@
 package com.gokyobistro.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +15,7 @@ import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.ReservationService;
 
 /**
-  Purpose: Handles table booking
+ * Purpose: Handles table booking
  */
 @WebServlet("/member/bookTable")
 public class BookTableController extends HttpServlet {
@@ -59,12 +61,21 @@ public class BookTableController extends HttpServlet {
             return;
         }
         
+        // CHECK FOR PAST DATE
+        LocalDate selectedDate = LocalDate.parse(reservationDate);
+        LocalDate today = LocalDate.now();
+        
+        if (selectedDate.isBefore(today)) {
+            response.sendRedirect(request.getContextPath() + "/member/bookTable?error=pastDate");
+            return;
+        }
+        
         int tableNumber = Integer.parseInt(tableNumberStr);
         int numberOfGuests = Integer.parseInt(guestsStr);
         
         // Check if table is available
         if (!reservationService.isTableAvailable(tableNumber, reservationDate, reservationTime)) {
-            response.sendRedirect(request.getContextPath() + "/member/bookTable?error=unavailable");
+            response.sendRedirect(request.getContextPath() + "/member/bookTable?error=alreadyBooked");
             return;
         }
         

@@ -25,10 +25,10 @@
             
             <div style="margin-bottom: 30px;">
                 <h3>Get in Touch</h3>
-                <p><strong>📍 Address:</strong> Lazimpat, Kathmandu, Nepal</p>
-                <p><strong>📞 Phone:</strong> 01-1234567, 9841234567</p>
-                <p><strong>✉ Email:</strong> info@gokyobistro.com</p>
-                <p><strong>⏰ Opening Hours:</strong> 10:00 AM - 10:00 PM (Daily)</p>
+                <p><strong>Address:</strong> Lazimpat, Kathmandu, Nepal</p>
+                <p><strong>Phone:</strong> 01-1234567, 9841234567</p>
+                <p><strong>Email:</strong> info@gokyobistro.com</p>
+                <p><strong>Opening Hours:</strong> 10:00 AM - 10:00 PM (Daily)</p>
             </div>
             
             <h3>Send us a Message</h3>

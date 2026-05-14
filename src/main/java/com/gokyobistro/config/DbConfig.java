@@ -10,31 +10,24 @@ import java.sql.SQLException;
 public class DbConfig {
     
     // Database connection parameters
-    // These MUST match your XAMPP/MySQL settings
     private static final String URL = "jdbc:mysql://localhost:3306/gokyo_bistro_db";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     
-    /**
-     * Returns a connection to the database
-     * 
-     * @return Connection object
-     * @throws ClassNotFoundException if MySQL driver not found
-     * @throws SQLException if connection fails
-     */
+    /*
+     Returns a connection to the database
+    */
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        // Step 1: Load the MySQL JDBC driver
+        // Load the MySQL JDBC driver
         Class.forName(DRIVER);
         
-        // Step 2: Create and return connection
+        // Create and return connection
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
     
-    /**
-     * Closes database connection to free resources
-     * 
-     * @param conn Connection to close
+    /*
+      Closes database connection to free resources
      */
     public static void closeConnection(Connection conn) {
         if (conn != null) {
@@ -46,11 +39,9 @@ public class DbConfig {
         }
     }
     
-    /**
-     * Tests the database connection
-     * 
-     * @return true if connection successful, false otherwise
-     */
+    /*
+     Tests the database connection
+    */
     public static boolean testConnection() {
         try (Connection conn = getConnection()) {
             return conn != null;

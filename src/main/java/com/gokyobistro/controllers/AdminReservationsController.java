@@ -14,7 +14,7 @@ import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.ReservationService;
 
 /**
-  View all customer reservations (Admin only)
+  View all customer reservations
  */
 @WebServlet("/admin/reservations")
 public class AdminReservationsController extends HttpServlet {

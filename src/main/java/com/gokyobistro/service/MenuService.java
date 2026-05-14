@@ -11,14 +11,12 @@ import com.gokyobistro.config.DbConfig;
 import com.gokyobistro.model.MenuModel;
 
 /**
- Handles menu-related business logic and database operations
-**/
+ * Handles menu-related business logic and database operations
+ */
 public class MenuService {
     
     /**
      * CREATE - Adds a new menu item to database
-     menu MenuModel object with menu item data
-      true if successful, false otherwise
      */
     public boolean addMenuItem(MenuModel menu) {
         String sql = "INSERT INTO menu (item_name, category, description, price, "
@@ -42,12 +40,11 @@ public class MenuService {
     }
     
     /**
-     * READ Gets all menu items from database
-      List of all menu items
+     * READ - Gets all menu items with sorting
      */
-    public List<MenuModel> getAllMenuItems() {
+    public List<MenuModel> getAllMenuItems(String sortBy) {
         List<MenuModel> menuList = new ArrayList<>();
-        String sql = "SELECT * FROM menu ORDER BY menu_id DESC";
+        String sql = "SELECT * FROM menu " + getSortQuery(sortBy);
         
         try (Connection conn = DbConfig.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -73,9 +70,14 @@ public class MenuService {
     }
     
     /**
+     * READ - Gets all menu items (without sorting - for backward compatibility)
+     */
+    public List<MenuModel> getAllMenuItems() {
+        return getAllMenuItems("default");
+    }
+    
+    /**
      * READ - Gets menu items by category
-     category Category name (Starter, Main Course, Dessert, Beverage)
-     List of menu items in that category
      */
     public List<MenuModel> getMenuItemsByCategory(String category) {
         List<MenuModel> menuList = new ArrayList<>();
@@ -108,8 +110,6 @@ public class MenuService {
     
     /**
      * READ - Gets a single menu item by ID
-       menuId Menu item ID
-       MenuModel if found, null otherwise
      */
     public MenuModel getMenuItemById(int menuId) {
         String sql = "SELECT * FROM menu WHERE menu_id = ?";
@@ -141,8 +141,6 @@ public class MenuService {
     
     /**
      * UPDATE - Updates an existing menu item
-      menu MenuModel with updated data
-      true if successful, false otherwise
      */
     public boolean updateMenuItem(MenuModel menu) {
         String sql = "UPDATE menu SET item_name = ?, category = ?, description = ?, "
@@ -168,8 +166,6 @@ public class MenuService {
     
     /**
      * DELETE - Removes a menu item from database
-      menuId Menu item ID to delete
-     true if successful, false otherwise
      */
     public boolean deleteMenuItem(int menuId) {
         String sql = "DELETE FROM menu WHERE menu_id = ?";
@@ -187,13 +183,11 @@ public class MenuService {
     }
     
     /**
-     * Search menu items by name or category
-      keyword Search keyword
-      List of matching menu items
+     * Search menu items by name or category with sorting
      */
-    public List<MenuModel> searchMenuItems(String keyword) {
+    public List<MenuModel> searchMenuItems(String keyword, String sortBy) {
         List<MenuModel> menuList = new ArrayList<>();
-        String sql = "SELECT * FROM menu WHERE item_name LIKE ? OR category LIKE ?";
+        String sql = "SELECT * FROM menu WHERE item_name LIKE ? OR category LIKE ? " + getSortQuery(sortBy);
         
         try (Connection conn = DbConfig.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -220,5 +214,28 @@ public class MenuService {
         }
         
         return menuList;
+    }
+    
+    /**
+     * Search menu items by name or category (without sorting - for backward compatibility)
+     */
+    public List<MenuModel> searchMenuItems(String keyword) {
+        return searchMenuItems(keyword, "default");
+    }
+    
+    /**
+     * Helper method to get ORDER BY clause based on sort parameter
+     */
+    private String getSortQuery(String sortBy) {
+        if (sortBy == null || sortBy.equals("default")) {
+            return "ORDER BY menu_id DESC";
+        } else if (sortBy.equals("price_asc")) {
+            return "ORDER BY price ASC";
+        } else if (sortBy.equals("price_desc")) {
+            return "ORDER BY price DESC";
+        } else if (sortBy.equals("name_asc")) {
+            return "ORDER BY item_name ASC";
+        }
+        return "ORDER BY menu_id DESC";
     }
 }

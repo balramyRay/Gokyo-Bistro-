@@ -55,7 +55,8 @@ public class AuthenticationFilter implements Filter {
                 path.equals("/register") ||
                 path.equals("/menu") ||
                 path.equals("/about") ||
-                path.equals("/contact");
+                path.equals("/contact")||
+                path.equals("/forgotPassword");
 
         if (isPublic) {
             chain.doFilter(request, response);
@@ -69,7 +70,7 @@ public class AuthenticationFilter implements Filter {
                 ? (UserModel) session.getAttribute("loggedInUser")
                 : null;
 
-        // Not logged in → redirect to login
+        // Not logged in -> redirect to login
         if (user == null) {
             res.sendRedirect(contextPath + "/login?error=unauthorized");
             return;

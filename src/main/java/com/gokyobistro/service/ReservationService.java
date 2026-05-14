@@ -43,11 +43,9 @@ public class ReservationService {
         }
     }
     
-    /**
-     * READ - Gets all reservations for a specific user
-     * 
-     * @param userId User ID
-     * @return List of user's reservations
+    /*
+      READ - Gets all reservations for a specific user
+    
      */
     public List<ReservationModel> getReservationsByUser(int userId) {
         List<ReservationModel> reservations = new ArrayList<>();

@@ -35,8 +35,8 @@ public class AdminManageMembersController extends HttpServlet {
         if ("delete".equals(action) && userIdStr != null) {
             int userId = Integer.parseInt(userIdStr);
             
-            //  DELETE member 
-            boolean deleted = userService.deleteUser(userId);
+            // Delete member with all their orders and reservations
+            boolean deleted = userService.deleteMemberWithAllData(userId);
             
             if (deleted) {
                 response.sendRedirect(request.getContextPath() + "/admin/manageMembers?success=deleted");
@@ -46,6 +46,7 @@ public class AdminManageMembersController extends HttpServlet {
             return;
         }
         
+        // Get all members (role = 'member')
         List<UserModel> membersList = userService.getAllMembers();
         request.setAttribute("membersList", membersList);
         request.getRequestDispatcher("/WEB-INF/pages/admin/manageMembers.jsp").forward(request, response);

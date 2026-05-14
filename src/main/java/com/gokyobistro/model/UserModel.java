@@ -1,7 +1,7 @@
 package com.gokyobistro.model;
 
 /**
- Represents a user (Admin or Member)
+ * Represents a user (Admin or Member)
  */
 public class UserModel {
     
@@ -14,8 +14,10 @@ public class UserModel {
     private String address;
     private String role;          // 'admin' or 'member'
     private String createdDate;
+    private int loginAttempts;     // For wrong password tracking
+    private String lockTime;       // When account gets locked
     
-    // No-argument constructor (Required for JavaBean)
+    // No-argument constructor 
     public UserModel() {}
     
     // Parameterized constructor
@@ -94,5 +96,22 @@ public class UserModel {
     
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
+    }
+    
+    // New fields for login locking feature
+    public int getLoginAttempts() {
+        return loginAttempts;
+    }
+    
+    public void setLoginAttempts(int loginAttempts) {
+        this.loginAttempts = loginAttempts;
+    }
+    
+    public String getLockTime() {
+        return lockTime;
+    }
+    
+    public void setLockTime(String lockTime) {
+        this.lockTime = lockTime;
     }
 }

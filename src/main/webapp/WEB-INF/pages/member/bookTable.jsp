@@ -21,6 +21,14 @@
             %>
                 <div class="error-message">Selected table is not available at this time. Please choose another table or time.</div>
             <%
+                    } else if (error.equals("alreadyBooked")) {
+            %>
+                <div class="error-message">This table is already booked for the selected date and time. Please choose another table or different time.</div>
+            <%
+                    } else if (error.equals("pastDate")) {
+            %>
+                <div class="error-message">Cannot book a table for a past date. Please select today or a future date.</div>
+            <%
                     } else if (error.equals("missing")) {
             %>
                 <div class="error-message">Please fill all required fields.</div>

@@ -22,25 +22,25 @@
         
         <div class="dashboard-grid">
             <div class="dashboard-card">
-                <h3>📋 Manage Menu</h3>
+                <h3>Manage Menu</h3>
                 <p>Add, edit, or delete menu items.</p>
                 <a href="${pageContext.request.contextPath}/admin/manageMenu" class="btn">Manage Menu</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>📅 All Reservations</h3>
+                <h3>All Reservations</h3>
                 <p>View all customer table bookings.</p>
                 <a href="${pageContext.request.contextPath}/admin/reservations" class="btn">View Reservations</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>📦 All Orders</h3>
+                <h3>All Orders</h3>
                 <p>View and manage customer orders.</p>
                 <a href="${pageContext.request.contextPath}/admin/orders" class="btn">View Orders</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>👥 Manage Members</h3>
+                <h3>Manage Members</h3>
                 <p>View and delete member accounts.</p>
                 <a href="${pageContext.request.contextPath}/admin/manageMembers" class="btn">Manage Members</a>
            </div>

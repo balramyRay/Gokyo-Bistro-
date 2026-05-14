@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
+     <!-- header added -->
     <jsp:include page="header.jsp" />
     
     <div class="container">
@@ -41,7 +42,7 @@
             <p>Email: info@gokyobistro.com</p>
         </div>
     </div>
-    
+    <!-- footer added -->
     <jsp:include page="footer.jsp" />
 </body>
 </html>

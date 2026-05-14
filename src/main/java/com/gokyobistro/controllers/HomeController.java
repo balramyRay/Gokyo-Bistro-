@@ -7,14 +7,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
-  Purpose: Displays the home page
+/*
+  Displays the home page
   */
 @WebServlet("/home")
 public class HomeController extends HttpServlet {
     
-    /**
-     * Handles GET request - displays home page
+    /*
+     displays home page
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 

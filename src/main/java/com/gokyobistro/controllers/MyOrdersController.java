@@ -13,8 +13,8 @@ import com.gokyobistro.model.OrderModel;
 import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.OrderService;
 
-/**
-   Purpose: Displays user's food orders
+/*
+   Displays users food orders
  */
 @WebServlet("/member/myOrders")
 public class MyOrdersController extends HttpServlet {
@@ -33,7 +33,7 @@ public class MyOrdersController extends HttpServlet {
             return;
         }
         
-        // Get user's orders
+        // Get users orders
         List<OrderModel> orders = orderService.getOrdersByUser(user.getUserId());
         request.setAttribute("orders", orders);
         

@@ -16,8 +16,8 @@ import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.MenuService;
 import com.gokyobistro.util.ImageUtil;
 
-/**
- Purpose: CRUD operations for menu items (Admin only)
+/*
+ CRUD operations for menu items
  */
 @WebServlet("/admin/manageMenu")
 

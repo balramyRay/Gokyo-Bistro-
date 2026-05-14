@@ -11,37 +11,42 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.gokyobistro.model.MenuModel;
 import com.gokyobistro.service.MenuService;
 
-/**
- * Menu Controller Servlet
- * 
- * Purpose: Displays menu items with search functionality
- 
+/*
+  Displays menu items with search and sort functionality
  */
 @WebServlet("/menu")
 public class MenuController extends HttpServlet {
     
     private MenuService menuService = new MenuService();
     
-    /**
-     * Handles GET request - displays menu page
+    /*
+     displays menu page with search and sort
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
         String searchKeyword = request.getParameter("search");
+        String sortBy = request.getParameter("sort");
+        
+        // Set default sort if not provided
+        if (sortBy == null || sortBy.isEmpty()) {
+            sortBy = "default";
+        }
+        
         List<MenuModel> menuList;
         
         if (searchKeyword != null && !searchKeyword.isEmpty()) {
-            // Search menu items
-            menuList = menuService.searchMenuItems(searchKeyword);
+            // Search menu items with sort
+            menuList = menuService.searchMenuItems(searchKeyword, sortBy);
             request.setAttribute("searchKeyword", searchKeyword);
         } else {
-            // Get all menu items
-            menuList = menuService.getAllMenuItems();
+            // Get all menu items with sort
+            menuList = menuService.getAllMenuItems(sortBy);
         }
         
         request.setAttribute("menuList", menuList);
+        request.setAttribute("sortBy", sortBy);
         request.getRequestDispatcher("/WEB-INF/pages/menu.jsp").forward(request, response);
     }
 }

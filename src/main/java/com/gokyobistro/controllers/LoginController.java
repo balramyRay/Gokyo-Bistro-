@@ -1,6 +1,8 @@
 package com.gokyobistro.controllers;
 
 import java.io.IOException;
+
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,53 +12,108 @@ import jakarta.servlet.http.HttpSession;
 
 import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.UserService;
-
-//When user goes to /login, this servlet runs
-
+// below annotation tells when login clicked must run this server.
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
     
+	// instance of UserService to get access of that class.
     private UserService userService = new UserService();
+
     
-    /**
-     * Handles GET request - displays login page
-     */
+    // Display Login Page
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Forward to login.jsp
-        request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+
+        request.getRequestDispatcher("/WEB-INF/pages/login.jsp")
+               .forward(request, response);
     }
+
     
-    /**
-     * Handles POST request - processes login form
-     */
+    // Handle Login Form Submission
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Get form parameters
+
+        // Get input from  email field password field.
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+
+        // Check empty fields
+        if(email == null || email.trim().isEmpty() ||
+           password == null || password.trim().isEmpty()) {
+
+            response.sendRedirect(
+                request.getContextPath() + "/login?error=empty"
+            );
+
+            return;
+        }
+        //check email exist or not
         
-        // Validate credentials using service
+        if (!userService.isEmailExists(email)) {
+            response.sendRedirect(request.getContextPath() + "/login?error=emailNotFound");
+            return;
+        }
+        // Check account lock
+        if(userService.isAccountLocked(email)) {
+
+            response.sendRedirect(
+                request.getContextPath() + "/login?error=locked"
+            );
+
+            return;
+        }
+
+
+        // Validate login
         UserModel user = userService.login(email, password);
-        
-        if (user != null) {
-            // Login successful - create session
+
+
+        // Login Successful
+        if(user != null) {
+
             HttpSession session = request.getSession();
+
             session.setAttribute("loggedInUser", user);
-            
+
+
             // Redirect based on role
-            if ("admin".equals(user.getRole())) {
-                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
+            if("admin".equals(user.getRole())) {
+
+                response.sendRedirect(
+                    request.getContextPath() + "/admin/dashboard"
+                );
+
             } else {
-                response.sendRedirect(request.getContextPath() + "/member/dashboard");
+
+                response.sendRedirect(
+                    request.getContextPath() + "/member/dashboard"
+                );
             }
-        } else {
-            // Login failed - redirect back with error
-            response.sendRedirect(request.getContextPath() + "/login?error=invalid");
+
+        }
+
+        
+        // Login Failed
+        else {
+
+            // Check if account became locked
+            if(userService.isAccountLocked(email)) {
+
+                response.sendRedirect(
+                    request.getContextPath() + "/login?error=locked"
+                );
+
+            } else {
+
+                response.sendRedirect(
+                    request.getContextPath() + "/login?error=invalid"
+                );
+            }
         }
     }
 }

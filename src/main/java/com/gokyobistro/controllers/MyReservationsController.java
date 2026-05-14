@@ -13,8 +13,8 @@ import com.gokyobistro.model.ReservationModel;
 import com.gokyobistro.model.UserModel;
 import com.gokyobistro.service.ReservationService;
 
-/**
-  Displays user's reservations and handles cancellation
+/*
+  Displays users reservations and handles cancellation
  */
 @WebServlet("/member/myReservations")
 public class MyReservationsController extends HttpServlet {
@@ -33,7 +33,7 @@ public class MyReservationsController extends HttpServlet {
             return;
         }
         
-        // Get user's reservations
+        // Get users reservations
         List<ReservationModel> reservations = reservationService.getReservationsByUser(user.getUserId());
         request.setAttribute("reservations", reservations);
         

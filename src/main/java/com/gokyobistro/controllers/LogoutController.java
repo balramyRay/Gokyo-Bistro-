@@ -16,9 +16,7 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/logout")
 public class LogoutController extends HttpServlet {
     
-    /**
-     * Handles GET request - logs out user
-     */
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {

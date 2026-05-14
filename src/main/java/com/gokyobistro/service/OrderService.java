@@ -16,11 +16,9 @@ import com.gokyobistro.model.OrderModel;
  */
 public class OrderService {
     
-    /**
-     * CREATE - Places a new food order
-     * 
-     * @param order OrderModel with order details
-     * @return true if successful, false otherwise
+    /*
+      CREATE - Places a new food order
+     
      */
     public boolean placeOrder(OrderModel order) {
         String sql = "INSERT INTO orders (user_id, menu_id, quantity, total_price, "

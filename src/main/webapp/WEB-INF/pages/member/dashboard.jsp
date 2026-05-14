@@ -22,31 +22,31 @@
         
         <div class="dashboard-grid">
             <div class="dashboard-card">
-                <h3>📅 Book a Table</h3>
+                <h3>Book a Table</h3>
                 <p>Reserve your table for an unforgettable dining experience.</p>
                 <a href="${pageContext.request.contextPath}/member/bookTable" class="btn">Book Now</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>📋 My Reservations</h3>
+                <h3>My Reservations</h3>
                 <p>View and manage your table bookings.</p>
                 <a href="${pageContext.request.contextPath}/member/myReservations" class="btn">View Reservations</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>🍽️ Place Order</h3>
+                <h3>Place Order</h3>
                 <p>Order your favorite food for delivery.</p>
                 <a href="${pageContext.request.contextPath}/menu" class="btn">Order Now</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>📦 My Orders</h3>
+                <h3>My Orders</h3>
                 <p>Track your food delivery orders.</p>
                 <a href="${pageContext.request.contextPath}/member/myOrders" class="btn">View Orders</a>
             </div>
             
             <div class="dashboard-card">
-                <h3>👤 My Account</h3>
+                <h3>My Account</h3>
                 <p>View and update your profile information.</p>
                 <a href="${pageContext.request.contextPath}/member/profile" class="btn">My Profile</a>
             </div>

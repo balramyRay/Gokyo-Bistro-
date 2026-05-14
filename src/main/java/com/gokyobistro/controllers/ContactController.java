@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ContactController extends HttpServlet {
     
     /**
-     * Handles GET request - displays contact page
+      displays contact page
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -25,7 +25,7 @@ public class ContactController extends HttpServlet {
     }
     
     /**
-     * Handles POST request - processes contact form
+      processes contact form
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -37,7 +37,7 @@ public class ContactController extends HttpServlet {
         String subject = request.getParameter("subject");
         String message = request.getParameter("message");
         
-         // For now, just redirect with success message
+         // just redirect with success message
         
         response.sendRedirect(request.getContextPath() + "/contact?success=sent");
     }
